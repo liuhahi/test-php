@@ -1,0 +1,8 @@
+# Hardcoded SCA manifest consumed by scissor-five's hardcoded_airgap() detector.
+# Format (comma-separated, exactly 4 fields per dependency line):
+#   lib_name,lib_vendor,platform,lib_version
+# Lines beginning with # or // are ignored. First directive sets the language.
+language=php
+# PHP core, pinned to the last PHP2Shell-vulnerable release on the 8.3 branch.
+# Flags CVE-2026-109618 (OOM-corruption RCE) and CVE-2026-109619 (stale-state RCE).
+php-src,php,Packagist,8.3.35

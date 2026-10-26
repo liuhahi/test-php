@@ -42,6 +42,25 @@ curl http://127.0.0.1:8080/
 You'll see the running version and a vulnerability verdict computed by
 `src/VersionInfo.php`.
 
+## Detection manifest (`php.SCA.VERSION`)
+
+`php.SCA.VERSION` is a hardcoded SCA manifest that scissor-five's
+`hardcoded_airgap()` detector picks up (it scans for any file whose name contains
+`.SCA.VERSION`). It declares PHP core itself as a detectable component so the
+scanner reports the pinned version and matches it against the PHP2Shell CVEs.
+
+Format — first line sets the language, each dependency is 4 comma-separated fields:
+
+```
+language=php
+lib_name,lib_vendor,platform,lib_version
+```
+
+`php` maps to the **Packagist** ecosystem in the engine. Lines starting with `#`
+or `//` are ignored; rows that don't have exactly 4 fields are skipped. Keep the
+version here in lockstep with the `Dockerfile` / `composer.json` / `.php-version`
+pin — bumping to a fixed release (e.g. `8.3.36`) should clear the findings.
+
 ## Verify the patch
 
 Edit the `Dockerfile` to the fixed release and rebuild:
