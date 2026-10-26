@@ -1,0 +1,19 @@
+{
+    "name": "scantist/test-php-php2shell",
+    "description": "Controlled lab pinned to a PHP2Shell-vulnerable PHP release (CVE-2026-109618, CVE-2026-109619) for reproduction and patch verification.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "8.3.35"
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.35"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

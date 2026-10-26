@@ -1,0 +1,9 @@
+# Isolated, non-published lab environment. Bind to localhost only — do NOT
+# expose a deliberately vulnerable PHP build to any untrusted network.
+services:
+  app:
+    build: .
+    image: test-php-php2shell:8.3.35
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: "no"
