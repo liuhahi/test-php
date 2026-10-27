@@ -5,4 +5,4 @@
 language=php
 # PHP core, pinned to the last PHP2Shell-vulnerable release on the 8.3 branch.
 # Flags CVE-2026-109618 (OOM-corruption RCE) and CVE-2026-109619 (stale-state RCE).
-php-src,php,Packagist,8.3.35
+php,,,8.3.35

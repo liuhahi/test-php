@@ -56,8 +56,12 @@ language=php
 lib_name,lib_vendor,platform,lib_version
 ```
 
-`php` maps to the **Packagist** ecosystem in the engine. Lines starting with `#`
-or `//` are ignored; rows that don't have exactly 4 fields are skipped. Keep the
+PHP core is declared by language and version only — `php,,,8.3.35`. Vendor and
+platform are left empty: the engine ignores the platform column and resolves the
+ecosystem from `language=php`.
+
+Lines starting with `#` or `//` are ignored; rows that don't have exactly 4 fields
+are skipped. Keep the
 version here in lockstep with the `Dockerfile` / `composer.json` / `.php-version`
 pin — bumping to a fixed release (e.g. `8.3.36`) should clear the findings.
 
